@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <div class="background-image">
+        <nav>
+            <div class="logo">Parking System</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="login.html">Login/Sign In</a></li>
+                <li><a href="parking_lot.html">Parking</a></li>
+                <li><a href="vehicle_management (1).html">Vehicle</a></li> 
+                <li><a href="Contact Page.html">Contact</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    
+        <main>
+            <section id="intro">
+                <h1>Welcome to the Parking Management System</h1>
+                <p>Manage your parking spaces efficiently and effectively with our system.</p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Parking Management System</p>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <script>
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
+    </script>
+</body>
+</html>

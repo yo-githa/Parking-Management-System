@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Management</title>
+    <link rel="stylesheet" href="vehicle_management (1).css">
+</head>
+<body>
+    <header>
+        <header class="header">
+            <a hr="#" class="logo">Vehicle Management</a>
+            <nav class="navbar">
+                <a href="#" class="active">Vehicle Entry</a>
+                <a href="#vehicleExit">Vehicle Exit</a>  
+                <a href="#searchVehicle">Search Vehicle</a>
+
+            </nav>
+        </header>
+    </header>
+    <div class="container">
+        <!-- Vehicle Entry Section -->
+        <section id="vehicle-entry">
+            <h2>Vehicle Entry</h2>
+            <form id="entry-form">
+                <label for="vehicle-number">Vehicle Number:</label>
+                <input type="text" id="vehicle-number" name="vehicle-number" required>
+                <br>
+                <label for="owner-name">Owner's Name:</label>
+                <input type="text" id="owner-name" name="owner-name" required>
+                <br>
+                <label for="vehicle-type">Vehicle Type:</label>
+                <select id="vehicle-type" name="vehicle-type">
+                    <option value="twoWheeler">Two wheeler</option>
+                    <option value="threeWheeler">Three wheeler</option>
+                    <option value="fourWheeler">Four wheeler</option>
+                    <option value="trucks">Trucks</option>
+                </select>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+       <!-- Vehicle Exit Section -->
+       <section id="vehicle-exit">
+        <h2>Vehicle Exit</h2>
+        <form id="exit-form">
+            <label for="exit-vehicle-number">Vehicle Number:</label>
+            <input type="text" id="exit-vehicle-number" name="exit-vehicle-number" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="exit-details" class="calculator">
+            <form oninput="parkingFee.value=duration.value * 5">
+                <label for="duration">Select Duration (hours):</label>
+                <input type="range" id="duration" name="duration" min="0" max="24" value="0">
+                <output name="parkingFee" for="duration">0</output>
+            </form>
+            <p>Hourly Charge: $5</p>
+            <p>Parking Fee: $<output name="parkingFee" for="duration">0</output></p>
+        </div>
+    </section>
+    <script>
+        document.getElementById('duration').addEventListener('input', function() {
+            document.querySelector('output[name="parkingFee"]').value = this.value * 5;
+        });
+    </script>
+
+        <!-- Vehicle Search Section -->
+        <section id="vehicle-search">
+            <h2>Search Vehicle</h2>
+            <form id="search-form">
+                <label for="search-query">Search by Vehicle Number or Owner's Name:</label>
+                <input type="text" id="search-query" name="search-query" required>
+                
+                <button type="submit">Search</button>
+            </form>
+            <div id="search-results">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vehicle Number</th>
+                            <th>Owner's Name</th>
+                            <th>Vehicle Type</th>
+                            <th>Entry Time</th>
+                            <th>Exit Time</th>
+                            <th>Duration</th>
+                            <th>Parking Fee</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                        <!-- Dynamic rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Vehicle Management System. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

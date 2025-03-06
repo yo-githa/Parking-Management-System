@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Vehicle Management</h1>
+    </header>
+    <div class="container">
+        <!-- Vehicle Entry Section -->
+        <section id="vehicle-entry">
+            <h2>Vehicle Entry</h2>
+            <form id="entry-form">
+                <label for="vehicle-number">Vehicle Number:</label>
+                <input type="text" id="vehicle-number" name="vehicle-number" required>
+                
+                <label for="owner-name">Owner's Name:</label>
+                <input type="text" id="owner-name" name="owner-name" required>
+                
+                <label for="vehicle-type">Vehicle Type:</label>
+                <select id="vehicle-type" name="vehicle-type">
+                    <option value="car">Car</option>
+                    <option value="bike">Bike</option>
+                </select>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Vehicle Exit Section -->
+        <section id="vehicle-exit">
+            <h2>Vehicle Exit</h2>
+            <form id="exit-form">
+                <label for="exit-vehicle-number">Vehicle Number:</label>
+                <input type="text" id="exit-vehicle-number" name="exit-vehicle-number" required>
+                
+                <button type="submit">Submit</button>
+            </form>
+            <div id="exit-details">
+                <p>Duration: <span id="duration"></span></p>
+                <p>Parking Fee: <span id="parking-fee"></span></p>
+            </div>
+        </section>
+
+        <!-- Vehicle Search Section -->
+        <section id="vehicle-search">
+            <h2>Search Vehicle</h2>
+            <form id="search-form">
+                <label for="search-query">Search by Vehicle Number or Owner's Name:</label>
+                <input type="text" id="search-query" name="search-query" required>
+                
+                <button type="submit">Search</button>
+            </form>
+            <div id="search-results">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vehicle Number</th>
+                            <th>Owner's Name</th>
+                            <th>Vehicle Type</th>
+                            <th>Entry Time</th>
+                            <th>Exit Time</th>
+                            <th>Duration</th>
+                            <th>Parking Fee</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                        <!-- Dynamic rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Vehicle Management System. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

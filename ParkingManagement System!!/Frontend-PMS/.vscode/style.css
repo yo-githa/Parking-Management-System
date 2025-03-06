@@ -1,0 +1,144 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+
+.background-image {
+    background-image: url('./img-2.avif');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    background-attachment: fixed;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 10px 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 2rem;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    font-size: 1.2rem;
+    text-shadow: #faf7f7;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 30px;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(150, 146, 146, 0.7);
+    border-radius: 9px;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* HAMBURGER MENU */
+@media (max-width: 768px) {
+    nav ul {
+        position: absolute;
+        top: 100px;
+        right: 0;
+        height: 100vh;
+        width: 50%;
+        background-color: rgba(0, 0, 0, 0.8);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    nav ul li {
+        margin: 20px 0;
+    }
+
+    .nav-active {
+        transform: translateX(0);
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+main {
+    color: #fdfdf9;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2em;
+    text-align: center;
+}
+
+#intro, #features {
+    margin-bottom: 2em;
+}
+
+footer {
+    background-color: #2f3e46;
+    color: #0c0b0b;
+    text-align: center;
+    padding: 1em 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

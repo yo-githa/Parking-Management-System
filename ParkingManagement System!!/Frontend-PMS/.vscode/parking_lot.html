@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,intial-scale=1.0">
+        <title> Parking Lot</title>
+        <link rel="stylesheet" href="parking_lot.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        </head>
+
+        <body>
+            <header class="header">
+                <a hr="#" class="logo">Parking Lot</a>
+                <nav class="navbar">
+                    <a href="#" class="active">Parking Status</a>
+                    <a href="#parkingrecords">Parking Records</a>  
+                    <a href="#parkingfee">Parking Fee</a>
+
+                </nav>
+            </header>
+
+
+            <!--Parking Status-->
+            <section class="home">
+                <div class="home-content">
+                    <h1>Parking Status</h1>
+                    <br>
+                    <h3>Number of available parking slots:</h3>
+                    <div class="status-box" id="available-slots">10</div>
+                    <h3>Number of occupied parking slots:</h3>
+                    <div class="status-box" id="available-slots">5</div>
+                    <h3>Total capacity of the parking lot:</h3>
+                    <div class="status-box" id="available-slots">15</div>
+                 </div>
+            </section>
+
+            <!--Parking Records-->
+            <section class="parkingrecords" id="parkingrecords">
+                <h2 class="heading">Parking Records<span></span></h2>
+                <div class="about-content">
+                    <form id="form"> 
+                        <input type="search" id="query" name="q" placeholder="Search vehicle">
+                        <button>Search</button>
+                      </form>
+                      <div class="section parking-rec">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Vehicle Number</th>
+                                    <th>Entry Time</th>
+                                    <th>Exit Time</th>
+                                    <th>Duration</th>
+                                    <th>Parking Fee</th>
+                                </tr>
+                            </thead>
+                            <tbody id="parking-records-body">
+                                <!-- Dynamic rows will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                 </div>
+            </section>
+
+
+            <script>
+                // Sample data array (replace with actual data or fetch from server)
+                const parkingRecords = [
+                    { vehicleNumber: 'ABC 1234', entryTime: '10:00 AM', exitTime: '11:30 AM', duration: '1.5 hours', fee: '$3.75' },
+                    { vehicleNumber: 'XYZ 5678', entryTime: '09:15 AM', exitTime: '10:45 AM', duration: '1.5 hours', fee: '$3.75' },
+                    { vehicleNumber: 'DEF 9876', entryTime: '11:00 AM', exitTime: '12:30 PM', duration: '1.5 hours', fee: '$3.75' }, // New record
+                    { vehicleNumber: 'GHI 5432', entryTime: '08:30 AM', exitTime: '09:45 AM', duration: '1.25 hours', fee: '$2.50' } // New record
+                    // Add more records as needed
+                ];
+        
+                // Function to populate table with records
+                function populateParkingRecords(records) {
+                    const tableBody = document.getElementById('parking-records-body');
+                    tableBody.innerHTML = ''; // Clear existing rows
+        
+                    records.forEach(record => {
+                        const row = document.createElement('tr');
+        
+                        const vehicleNumberCell = document.createElement('td');
+                        vehicleNumberCell.textContent = record.vehicleNumber;
+                        row.appendChild(vehicleNumberCell);
+        
+                        const entryTimeCell = document.createElement('td');
+                        entryTimeCell.textContent = record.entryTime;
+                        row.appendChild(entryTimeCell);
+        
+                        const exitTimeCell = document.createElement('td');
+                        exitTimeCell.textContent = record.exitTime;
+                        row.appendChild(exitTimeCell);
+        
+                        const durationCell = document.createElement('td');
+                        durationCell.textContent = record.duration;
+                        row.appendChild(durationCell);
+        
+                        const feeCell = document.createElement('td');
+                        feeCell.textContent = record.fee;
+                        row.appendChild(feeCell);
+        
+                        tableBody.appendChild(row);
+                    });
+                }
+        
+                // Initial population of table
+                populateParkingRecords(parkingRecords);
+        
+                // Example search function (replace with actual search logic)
+                function searchVehicle() {
+                    const query = document.getElementById('query').value.toLowerCase();
+                    const filteredRecords = parkingRecords.filter(record => {
+                        return record.vehicleNumber.toLowerCase().includes(query);
+                    });
+        
+                    populateParkingRecords(filteredRecords);
+                }
+            </script>
+        </body>
+    </script>
+
+
+            <!--Fee-->
+            <section class="parkingfee">
+                <h2 class="heading">Fee Structure</h2>
+                <div class="structure-item">
+                    <h3>Hourly rate for parking:</h3>
+                    <p>$5.00</p> <!-- Example rate, replace with actual rates -->
+                </div>
+                <div class="structure-item">
+                    <h3>Daily rate for parking:</h3>
+                    <p>$30.00</p> <!-- Example rate, replace with actual rates -->
+                </div>
+                <div class="structure-item">
+                    <h3>Additional charges or discounts:</h3>
+                    <p>No additional charges</p> <!-- Example, replace with actual details -->
+                </div>
+            </section>
+        
+            <section class="calculator">
+                <h2 class="heading">Fee Calculator</h2>
+                <form id="calculatorForm">
+                    <label for="duration">Duration of stay (in hours):</label>
+                    <input type="number" id="duration" name="duration" min="1" required>
+                    <button type="submit">Calculate Fee</button>
+                </form>
+                <div id="feeResult">
+                    <!-- Calculated fee will be displayed here -->
+                </div>
+            </section>
+        
+            <script>
+                document.getElementById('calculatorForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    const hourlyRate = 5.00; // Example hourly rate, replace with actual rate
+                    const dailyRate = 30.00; // Example daily rate, replace with actual rate
+                    const duration = parseFloat(document.getElementById('duration').value);
+                    
+                    let calculatedFee = 0;
+        
+                    // Calculate fee based on duration
+                    if (duration >= 24) {
+                        calculatedFee = dailyRate;
+                    } else {
+                        calculatedFee = hourlyRate * duration;
+                    }
+        
+                    // Display the calculated fee
+                    const feeResultElement = document.getElementById('feeResult');
+                    feeResultElement.textContent = `Parking fee: $${calculatedFee.toFixed(2)}`;
+                });
+            </script>
+
+        </body>
+
+</html>

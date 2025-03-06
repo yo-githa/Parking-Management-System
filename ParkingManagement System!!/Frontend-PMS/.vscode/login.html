@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Separate Form for User and Admin</title>
+    <style>
+        body {
+            background: url('./pexels-brett-sayles-1756957.jpg') no-repeat center center/cover;
+            font-family: Arial, sans-serif;
+            line-height: 1.9;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgb(from color r g b);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(204, 204, 204, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            
+        }
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .form-section {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border:1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            padding: 20px;
+            border-radius: 40px;
+            
+        }
+        .form-section h3 {
+            margin-top: 0;
+            color: #fff;
+            text-align: center;
+        }
+        .form-section label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .form-section input[type="text"],
+        .form-section input[type="email"],
+        .form-section input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: local;
+            color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            
+            
+        }
+
+        .form-section input[type="submit"] {
+            background: #5e615f;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            
+        }
+        .form-section input[type="submit"]:hover {
+            background: #0d0e0d;
+        }
+        .form-section button{
+            background: black;
+             padding: 10px 15px;
+            backdrop-filter: blur(10px);    
+            color: white;
+
+        }
+       
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Form for User and Admin</h2>
+
+        <div class="form-container">
+            <!-- User Section -->
+            <div class="form-section" id="user-section">
+                <h3>User Form</h3>
+                <form action="/submit_user" method="post">
+                    <label for="user-name">Name:</label>
+                    <input type="text" id="user-name" name="name" required>
+
+                    <label for="user-email">Email:</label>
+                    <input type="email" id="user-email" name="email" required>
+
+                    <label for="user-password">Password:</label>
+                    <input type="password" id="user-password" name="password" required>
+
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Remember Me</label>
+                        <a href="#" style="color: blue;">Forgot Password?</a>
+                     </div>
+                
+
+                     <button onclick="displayMessage()">Submit</button>
+    <p id="message" style="color: #ddd;"></p>
+
+    <script>
+        function displayMessage() {
+            document.getElementById('message').innerText = 'Your Form has been submitted!!';
+        }
+    </script>
+
+                    <div class="signUp-link">
+                        <p style="color: #fff;">Don't have an account? <a href="signup.html" class="signUpBtn-link" style="color: blue;">Sign Up</a></p>
+
+                    
+                </form>
+            </div>
+            </div>
+
+            <!-- Admin Section -->
+            <div class="form-section" id="admin-section">
+                <h3>Admin Form</h3>
+                <form action="/submit_admin" method="post">
+                    <label for="admin-name">Name:</label>
+                    <input type="text" id="admin-name" name="name" required>
+
+                    <label for="admin-email">Email:</label>
+                    <input type="email" id="admin-email" name="email" required>
+
+                    <label for="admin-password">Password:</label>
+                    <input type="password" id="admin-password" name="password" required>
+
+                    <label for="admin-role">Role:</label>
+                    <input type="text" id="admin-role" name="role" required>
+
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Remember Me</label>
+                        <a href="#" style="color: blue;">Forgot Password?</a>
+                     </div>
+
+     <button onclick="displayMessage()">Submit</button>
+    <p id="message" style="color: #ddd;"></p>
+
+    <script>
+        function displayMessage() {
+            document.getElementById('message').innerText = 'Your Form has been submitted!!';
+        }
+    </script>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

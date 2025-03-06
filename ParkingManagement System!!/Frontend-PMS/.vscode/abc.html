@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Lot Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Parking Lot Management</h1>
+    </header>
+    <main>
+        <section id="parking-status">
+            <h2>Parking Status</h2>
+            <div class="status-container">
+                <p><strong>Available Slots:</strong> <span id="available-slots">Loading...</span></p>
+                <p><strong>Occupied Slots:</strong> <span id="occupied-slots">Loading...</span></p>
+                <p><strong>Last Updated:</strong> <span id="last-updated">Loading...</span></p>
+            </div>
+        </section>
+        
+        <section id="parking-records">
+            <h2>Parking Records</h2>
+            <div class="records-container">
+                <!-- Placeholder for parking records -->
+                <table id="records-table">
+                    <thead>
+                        <tr>
+                            <th>Vehicle Number</th>
+                            <th>Entry Time</th>
+                            <th>Exit Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section id="fee-calculation">
+            <h2>Fee Calculation</h2>
+            <div class="fee-container">
+                <p><strong>Hourly Rate:</strong> $2.50</p>
+                <p><strong>Daily Rate:</strong> $15.00</p>
+                <form id="fee-calculator">
+                    <label for="duration">Duration of Stay (hours):</label>
+                    <input type="number" id="duration" name="duration" min="1" required>
+                    <button type="submit">Calculate Fee</button>
+                </form>
+                <p id="fee-result">Estimated Fee: $0.00</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Parking Lot Management System. All rights reserved.</p>
+    </footer>
+
+    <!-- Include your JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Login & Registration Form | Codehal</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form-container">
+      <!-- User Form -->
+      <div class="form-box">
+        <div class="form-wrapper sign-in">
+          <h2>User</h2>
+          <form action="/submit_user" method="post">
+            <label for="user-name">Name:</label>
+            <input type="text" id="user-name" name="name" required>
+
+            <label for="user-email">Email:</label>
+            <input type="email" id="user-email" name="email" required>
+
+            <label for="user-password">Password:</label>
+            <input type="password" id="user-password" name="password" required>
+
+            <input type="submit" value="Submit User Form">
+          </form>
+        </div>
+      </div>
+
+      <!-- Admin Form -->
+      <div class="form-box">
+        <div class="form-wrapper sign-up">
+          <h2>Admin</h2>
+          <form action="/submit_admin" method="post">
+            <label for="admin-name">Name:</label>
+            <input type="text" id="admin-name" name="name" required>
+
+            <label for="admin-email">Email:</label>
+            <input type="email" id="admin-email" name="email" required>
+
+            <label for="admin-password">Password:</label>
+            <input type="password" id="admin-password" name="password" required>
+
+            <label for="admin-role">Role:</label>
+            <input type="text" id="admin-role" name="role" required>
+
+            <input type="submit" value="Submit Admin Form">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
